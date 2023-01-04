@@ -89,13 +89,13 @@ class W8BenDocument(BaseModel):
     Attributes:
         additional_conditions (Optional[str]): Any additional conditions to specify
         country_citizen (str): The Country that the applicant is a citizen of
-        date (str): date signed
-        date_of_birth (str): DOB of applicant
+        date (date): date signed
+        date_of_birth (date): DOB of applicant
         foreign_tax_id (Optional[str]): Applicant's tax id in their home country
         ftin_not_required (Optional[bool]): Required if foreign_tax_id and tax_id_ssn are empty.
         full_name (str): Full name of applicant
         income_type (Optional[str]): income type of applicant
-        ip_address (str): ip address of applicant when signed
+        ip_address (IPAddress): ip address of applicant when signed
         mailing_address_city_state (Optional[str]): mailing city/state of applicant
         mailing_address_country (Optional[str]): mailing country for applicant
         mailing_address_street (Optional[str]): mailing street address for applicant
@@ -110,20 +110,20 @@ class W8BenDocument(BaseModel):
         revision (str): Revision of the W8BEN form
         signer_full_name (str): Full name of signing user
         tax_id_ssn (Optional[str]): TaxID/SSN of applicant
-        timestamp (str): timestamp when form data was gathered
+        timestamp (datetime): timestamp when form data was gathered
     """
 
     country_citizen: str
-    date: str
-    date_of_birth: str
+    date: date
+    date_of_birth: date
     full_name: str
-    ip_address: str
+    ip_address: IPAddress
     permanent_address_city_state: str
     permanent_address_country: str
     permanent_address_street: str
     revision: str
     signer_full_name: str
-    timestamp: str
+    timestamp: datetime
 
     # optional fields
     additional_conditions: Optional[str] = None
